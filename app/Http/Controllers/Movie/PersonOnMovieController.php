@@ -11,6 +11,11 @@ class PersonOnMovieController extends ApiController
 {
     public $movie_customize;
 
+    public function __construct()
+    {
+        $this->middleware('client.credentials');
+    }
+
     /* Receives the id of the movie and return all the people actor who are from the movie */
     public function getCasting(Movie $movie)
     {

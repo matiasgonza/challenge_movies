@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\Web;
 
-use App\Movie;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Controller;
+use App\Movie;
 
-class MovieAccessController extends ApiController
+class MoviesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class MovieAccessController extends ApiController
      */
     public function index()
     {
-        $movies = Movie::all();
+        $movies = Movie::paginate(10);
 
-        return $this->showAll($movies);
+        return view('movies.index', compact('movies'));
     }
 
     /**
@@ -28,6 +28,6 @@ class MovieAccessController extends ApiController
      */
     public function show(Movie $movie)
     {
-        return $this->showOne($movie);
+        return view('movies.show', compact('movie'));
     }
 }

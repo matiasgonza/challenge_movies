@@ -18,13 +18,29 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /* Routes Front */
-Route::resource('front-persons', 'Front\PersonAccessController')->only(['show', 'index']);
+Route::get('front-persons', [
+    'uses' => 'Front\PersonAccessController@index', 
+    'as' => 'front-persons.index'
+]);
 
-Route::resource('front-movies', 'Front\MovieAccessController')->only(['show', 'index']);
+Route::get('front-persons/{person}', [
+    'uses' => 'Front\PersonAccessController@show', 
+    'as' => 'front-persons.show'
+]);
 
-Route::resource('persons', 'Person\PersonController')->except(['create', 'edit']);
+Route::get('front-movies', [
+    'uses' => 'Front\MovieAccessController@index', 
+    'as' => 'front-movies.index'
+]);
 
-Route::resource('movies', 'Movie\MovieController')->except(['create', 'edit']);
+Route::get('front-movies/{movie}', [
+    'uses' => 'Front\MovieAccessController@show', 
+    'as' => 'front-movies.show'
+]);
+
+Route::resource('person', 'Person\PersonController')->except(['create', 'edit']);
+
+Route::resource('movie', 'Movie\MovieController')->except(['create', 'edit']);
 
 /****** Routes Back-office *******/
 
@@ -121,4 +137,13 @@ Route::put('movies-as-producer-update/{person}', [
     'uses' => 'Person\MovieOnPersonController@updateMoviesAsProducer',
     'as' => 'movies-as-producer-update.updateMoviesAsProducer'
 ]);
+
+Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+
+
+Route::post('/login', [
+    'uses' =>'Auth_Api\AuthController@login',
+    'as' => 'login'
+]);
+
 
