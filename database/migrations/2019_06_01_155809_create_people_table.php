@@ -15,12 +15,12 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('movies_as_actor_actress')->nullable();
-            $table->unsignedInteger('movies_as_director')->nullable();
-            $table->unsignedInteger('movies_as_producer')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('aliases');
+            $table->unsignedInteger('movies_as_actor_actress')->default(0);
+            $table->unsignedInteger('movies_as_director')->default(0);
+            $table->unsignedInteger('movies_as_producer')->default(0);
             $table->timestamps();
         });
     }

@@ -17,9 +17,9 @@ class CreateMoviesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->unsignedBigInteger('release_year');
-            $table->unsignedInteger('casting')->nullable();
-            $table->unsignedInteger('directors')->nullable();
-            $table->unsignedInteger('producer')->nullable();
+            $table->unsignedInteger('casting')->default(0);
+            $table->unsignedInteger('directors')->default(0);
+            $table->unsignedInteger('producer')->default(0);
             $table->timestamps();
         });
     }

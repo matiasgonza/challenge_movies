@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Person;
 
 class Movie extends Model
 {
@@ -12,17 +13,17 @@ class Movie extends Model
 
     public function actors()
     {
-        return $this->hasMany(User::class, 'actor_movie');
+        return $this->belongsToMany(Person::class, 'actor_movie');
     }
 
     public function directors()
     {
-        return $this->hasMany(User::class, 'director_movie');
+        return $this->belongsToMany(Person::class, 'director_movie');
     }
 
     public function producer()
     {
-        return $this->hasMany(User::class, 'producer_movie');
+        return $this->belongsToMany(Person::class, 'producer_movie');
     }
 
 }
