@@ -59,3 +59,36 @@ Route::get('movies/{movie}', [
     'uses' => 'Web\MoviesController@show',
     'as' => 'movies.show'
 ]);
+
+//Person on movie
+Route::get('movie-casting/{movie}', [
+    'uses' => 'Web\PersonOnMoviesFrontController@getCasting',
+    'as' => 'movie_casting.getCasting'
+]);
+
+Route::get('movie-directors/{movie}', [
+    'uses' => 'Web\PersonOnMoviesFrontController@getDirectors',
+    'as' => 'movie_directors.getDirectors'
+]);
+
+Route::get('movie-producer/{movie}', [
+    'uses' => 'Web\PersonOnMoviesFrontController@getProducer',
+    'as' => 'movie_producer.getProducer'
+]);
+
+//Movie on Person
+
+Route::get('movies-as-actor/{person}', [
+    'uses' => 'Web\MoviesOnPersonFrontController@getMoviesAsActor',
+    'as' => 'person.movies_as_actor'
+]);
+
+Route::get('movies-as-director/{person}', [
+    'uses' => 'Web\MoviesOnPersonFrontController@getMoviesAsDirector',
+    'as' => 'person.movies_as_director'
+]);
+
+Route::get('movies-as-producer/{person}', [
+    'uses' => 'Web\MoviesOnPersonFrontController@getMoviesAsProducer',
+    'as' => 'person.movies_as_producer'
+]);
