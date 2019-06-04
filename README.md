@@ -2,12 +2,14 @@
 
 <p>Luego de clonar el repositorio ejecutar: composer install</p>
 **<strong>Es muy importante ejecutar los seeders definidos</strong>**
+<h5>Framewokr: Laravel</h5>
+<h5>Tipo de aplicación: API</h5>
 <h5>Los paquetes instalados son:</h5>
 * CORS
 * Laravel Passport
 <br>
 <p>Las colecciones retornadas poseen paginación</p>
-
+<p>La aplicación posee un back-office con las operaciones seguras sin autenticación requerida.</p>
 ### Descripción endpoints
 
 <p>Ejemplo de modelo</p><br>
