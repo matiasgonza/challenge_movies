@@ -1,6 +1,7 @@
 ## Consideraciones iniciales
 
-<p>Luego de clonar el repositorio ejecutar: composer install</p>
+<p>Luego de clonar el repositorio ejecutar:</p>
+<pre>composer install</pre>
 **<strong>Es muy importante ejecutar los seeders definidos</strong>**
 <h5>Framewokr: Laravel</h5>
 <h5>Tipo de aplicación: API</h5>
